@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Broadcast Journalism: Day 1 Orientation & Safety Sign-Off</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --accent-color: #2563eb;
+      --success-color: #16a34a;
+      --warning-color: #dc2626;
+      --bg-color: #f1f5f9;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      margin: 0;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .app-header {
+      text-align: center;
+      margin-bottom: 24px;
+      max-width: 900px;
+    }
+
+    .app-header h1 {
+      margin: 0 0 8px 0;
+      color: var(--primary-color);
+      font-size: 26px;
+    }
+
+    .app-header p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .main-container {
+      max-width: 900px;
+      width: 100%;
+    }
+
+    /* Tab Switcher */
+    .navigation-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .tab-button {
+      flex: 1;
+      padding: 14px;
+      border: 2px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--text-main);
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .tab-button.active {
+      background: var(--accent-color);
+      color: white;
+      border-color: var(--accent-color);
+      box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+    }
+
+    .content-panel {
+      display: none;
+    }
+
+    .content-panel.active {
+      display: block;
+    }
+
+    /* Presentation Slide Styling */
+    .slide-wrapper {
+      background: var(--card-bg);
+      border-radius: 14px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      padding: 36px;
+      min-height: 460px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-left: 8px solid var(--accent-color);
+    }
+
+    .slide-header-badge {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .slide-body h2 {
+      margin: 0 0 12px 0;
+      color: var(--primary-color);
+      font-size: 24px;
+    }
+
+    .slide-body p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #334155;
+      margin-bottom: 16px;
+    }
+
+    .standard-tag {
+      font-size: 12px;
+      font-weight: 600;
+      color: #475569;
+      background: #f8fafc;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .slide-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .slide-list li {
+      margin-bottom: 10px;
+      line-height: 1.5;
+      font-size: 14px;
+      color: #1e293b;
+    }
+
+    .slide-footer-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .btn-nav {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .btn-nav:hover:not(:disabled) {
+      background-color: #334155;
+    }
+
+    .btn-nav:disabled {
+      background-color: #cbd5e1;
+      cursor: not-allowed;
+    }
+
+    /* Sign-Off Worksheet Styling */
+    .worksheet-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      padding: 36px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--primary-color);
+    }
+
+    input[type="text"], input[type="date"], select {
+      padding: 10px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 14px;
+      background: #f8fafc;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 24px 0 12px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #f8fafc;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 10px;
+    }
+
+    .checklist-item input[type="checkbox"] {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .checklist-item label {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .btn-submit {
+      background-color: var(--success-color);
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.2s;
+    }
+
+    .btn-submit:hover {
+      background-color: #15803d;
+    }
+
+    /* Print View Rules */
+    @media print {
+      body { background: white; padding: 0; }
+      .navigation-tabs, .slide-footer-nav, .btn-submit, .app-header p { display: none !important; }
+      .content-panel { display: block !important; page-break-after: always; }
+      .slide-wrapper, .worksheet-card { box-shadow: none; border: 1px solid #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-header">
+    <h1>Broadcast Journalism: Media Production & Scripting</h1>
+    <p>Week 1 Foundations: Orientation, Ethics, Safety Protocols & Equipment Operations</p>
+  </div>
+
+  <div class="main-container">
+    
+    <!-- Tab Controls -->
+    <div class="navigation-tabs">
+      <button class="tab-button active" onclick="switchTab('slides-tab')">
+        📺 Week 1 Lesson Deck (12 Slides)
+      </button>
+      <button class="tab-button" onclick="switchTab('worksheet-tab')">
+        📋 Safety & Ethics Sign-Off Sheet
+      </button>
+    </div>
+
+    <!-- PANEL 1: DAY 1 SLIDES -->
+    <div id="slides-tab" class="content-panel active">
+      <div class="slide-wrapper">
+        <div class="slide-body">
+          <span class="slide-header-badge" id="slide-category">Category</span>
+          <h2 id="slide-title">Slide Title</h2>
+          <div class="standard-tag" id="slide-standard">Aligned Standards: None</div>
+          <p id="slide-summary">Summary content goes here.</p>
+          <ul class="slide-list" id="slide-bullets">
+            <!-- Bullet points dynamically inserted -->
+          </ul>
+        </div>
+
+        <div class="slide-footer-nav">
+          <button class="btn-nav" id="btn-prev" onclick="navigateSlide(-1)">← Previous</button>
+          <span id="slide-counter" style="font-weight: 700; color: #64748b;">Slide 1 of 12</span>
+          <button class="btn-nav" id="btn-next" onclick="navigateSlide(1)">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 2: SIGN-OFF WORKSHEET -->
+    <div id="worksheet-tab" class="content-panel">
+      <div class="worksheet-card">
+        <h2 style="margin-top:0; color: var(--primary-color);">Broadcast Lab Safety & Ethics Acknowledgment</h2>
+        <p style="color: var(--text-muted); font-size: 14px;">Complete and sign this form following the Week 1 orientation. Required for equipment check-out privileges.</p>
+        
+        <form id="sign-off-form" onsubmit="handleFormSubmission(event)">
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="studentName">Student Full Name</label>
+              <input type="text" id="studentName" placeholder="e.g. Alex Morgan" required>
+            </div>
+            <div class="form-group">
+              <label for="classPeriod">Class Period / Station Crew</label>
+              <select id="classPeriod" required>
+                <option value="">Select Period...</option>
+                <option value="P1">Period 1 - Morning Broadcast</option>
+                <option value="P3">Period 3 - Media Production</option>
+                <option value="P5">Period 5 - Advanced Field Crew</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="primaryRole">Primary Assigned Role</label>
+              <input type="text" id="primaryRole" placeholder="e.g., Camera Op / Anchor / Technical Director" required>
+            </div>
+            <div class="form-group">
+              <label for="signDate">Date of Completion</label>
+              <input type="date" id="signDate" required>
+            </div>
+          </div>
+
+          <div class="section-title">Standard 1: Newsroom Conduct & Journalism Ethics (CTB.01.02 & CTB.05.01)</div>
+          
+          <div class="checklist-item">
+            <input type="checkbox" id="check-ethics" required>
+            <label for="check-ethics">
+              <strong>Journalistic Responsibility:</strong> I pledge to maintain factual accuracy, verify sources, and avoid bias or intentional distortion in all broadcast reporting.
+            </label>
+          </div>
+
+          <div class="checklist-item">
+            <input type="checkbox" id="check-conduct" required>
+            <label for="check-conduct">
+              <strong>Field Conduct & Releases:</strong> I understand that filming on campus and in public spaces requires professional conduct and adherence to student/guest privacy release form requirements.
+            </label>
+          </div>
+
+          <div class="section-title">Standard 2: Equipment Safety & Handling Protocols (CTB.05.01 & CTB.01.03)</div>
+
+          <div class="checklist-item">
+            <input type="checkbox" id="check-camera" required>
+            <label for="check-camera">
+              <strong>Camera & Tripod Handling:</strong> I will always secure pan/tilt locks before mounting/unmounting cameras, maintain 3-point contact when carrying kits, and use shoulder straps during field operation.
+            </label>
+          </div>
+
+          <div class="checklist-item">
+            <input type="checkbox" id="check-daktronics" required>
+            <label for="check-daktronics">
+              <strong>Daktronics Board Setup & Security:</strong> I agree to access the Daktronics control interface using assigned credentials only and will follow standard shutdown sequences to protect control hardware.
+            </label>
+          </div>
+
+          <div class="checklist-item">
+            <input type="checkbox" id="check-damage" required>
+            <label for="check-damage">
+              <strong>Incident & Hazard Reporting:</strong> I agree to inspect all gear during checkout/checkin and report any damaged cables, faulty LED modules, or equipment malfunctions to the station manager immediately.
+            </label>
+          </div>
+
+          <button type="submit" class="btn-submit">Submit Sign-Off & Print Official Record</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // EXPANDED 12-SLIDE DECK ALIGNED DIRECTLY WITH WEEK 1 SYLLABUS & STANDARDS
+    const slideDeck = [
+      {
+        category: "Daily Bellringer",
+        title: "Random Daily Writing: Media Responsibility & Trust",
+        standard: "CTB.01.02 (Regulations & Media Responsibility) | Sept 1 Kickoff",
+        summary: "Take 5 minutes to complete this initial reflection prompt in your broadcast journal before we begin our newsroom orientation.",
+        bullets: [
+          "<strong>Writing Prompt:</strong> 'What is the primary responsibility of a news broadcast to its community, and what occurs when public trust is broken?'",
+          "<strong>Reflection Point:</strong> Think of a news story or viral clip you recently consumed that felt biased or inaccurate. How did it affect your perception of that news outlet?",
+          "<strong>Key Question:</strong> Why is credibility infinitely more valuable to a broadcast team than simply being the first to report a story?",
+          "<strong>Expectation:</strong> Write 4 to 5 complete sentences. Be prepared to share your thoughts during our Friday Seminar session."
+        ]
+      },
+      {
+        category: "Course Overview",
+        title: "Welcome to Broadcast Journalism: Media Production & Scripting",
+        standard: "CTB.01.03 (Industry Terminology) | Course Foundations",
+        summary: "This course expands your foundational broadcasting skills through the lens of professional, high-impact storytelling.",
+        bullets: [
+          "<strong>Pre-Production Focus:</strong> Researching stories, conducting ethical interviews, and writing industry-standard 2-column scripts (VO/SOT).",
+          "<strong>Technical Execution:</strong> Operating professional field cameras, studio lighting, audio mixers, and the Daktronics board system.",
+          "<strong>Broadcast Performance:</strong> Refining vocal delivery, pacing, and tone to match journalistic intent and audience expectations.",
+          "<strong>Capstone Goal:</strong> By Year-End, you will lead a full live-on-air broadcast and construct a professional portfolio showreel."
+        ]
+      },
+      {
+        category: "Newsroom Ethics",
+        title: "Foundations of Journalism Ethics & Truth-Telling",
+        standard: "CTB.01.02 (Regulations & Media Responsibility) | Sept 1 Focus",
+        summary: "Establishing the moral and operational framework for our student newsroom and campus reporting.",
+        bullets: [
+          "<strong>The Truth Imperative:</strong> Every statement, graphic, and voiceover presented must be thoroughly fact-checked and verified.",
+          "<strong>Unbiased Reporting:</strong> Distinguish clearly between objective reporting and editorial/opinion pieces. Avoid taking personal sides.",
+          "<strong>Source Integrity:</strong> Always seek primary sources and firsthand accounts over secondary gossip or unverified social media claims.",
+          "<strong>Corrections Policy:</strong> If an error is made on air, our station issues an immediate, transparent retraction and correction."
+        ]
+      },
+      {
+        category: "Media Law & Privacy",
+        title: "Legal Regulations: Copyright, Libel & Student Privacy",
+        standard: "CTB.05.02 (Libel, Slander, Copyright, & Fair-Use Law)",
+        summary: "Navigating the legal responsibilities of student broadcasters and protecting individual rights.",
+        bullets: [
+          "<strong>Libel & Slander:</strong> Defamation through spoken words (slander) or broadcast text/graphics (libel) carries severe legal consequences.",
+          "<strong>Fair Use & Copyright:</strong> You cannot use copyrighted music, video clips, or photos without explicit permission or proper Fair Use clearance.",
+          "<strong>Public vs. Private Spaces:</strong> Understand where individuals have a legal expectation of privacy on campus versus public grounds.",
+          "<strong>Release Forms:</strong> Mandatory consent forms must be collected for featured guests, long-form interviewees, and minors."
+        ]
+      },
+      {
+        category: "Newsroom Hierarchy",
+        title: "Station Structure: Control Room & Crew Roles",
+        standard: "CTB.01.03 (Control Room & Newsroom Terminology)",
+        summary: "A successful broadcast relies on precise communication and clear division of labor across every role.",
+        bullets: [
+          "<strong>Producer:</strong> Oversees show structure, segment pacing, timing rundowns, and story flow.",
+          "<strong>Director & TD (Technical Director):</strong> Calls camera cuts, operates the video switcher, and controls live studio transitions.",
+          "<strong>Audio Engineer:</strong> Monitors sound levels (-12dB to -6dB peak), mic selection, room tone, and background sound beds.",
+          "<strong>Anchors & Reporters:</strong> Deliver news with accurate pacing, professional poise, clear diction, and strong camera eye-contact."
+        ]
+      },
+      {
+        category: "Equipment Safety",
+        title: "Intro to Equipment: Camera Kits & Inventory Checks",
+        standard: "CTB.05.01 (Safety & Media Ethics) | Sept 2 Focus",
+        summary: "Hands-on orientation with professional field cameras, battery safety, and inventory control.",
+        bullets: [
+          "<strong>Pre-Check Inventory:</strong> Inspect every camera kit (lens, battery, SD card, microphone) before leaving the check-out counter.",
+          "<strong>Lens Care:</strong> Never touch optical glass with fingers. Use only micro-fiber cloths and specialized lens cleaner.",
+          "<strong>Battery Management:</strong> Always carry charged backup batteries; report degraded cells to station engineering immediately.",
+          "<strong>Stop-Work Authority:</strong> Any student crew member can pause production if gear safety or personal security is compromised."
+        ]
+      },
+      {
+        category: "Camera Stabilization",
+        title: "Tripod Operation & Mechanical Safety Protocols",
+        standard: "CTB.03.01 (Shooting Guidelines) & CTB.05.01 (Safety)",
+        summary: "Proper stabilization is mandatory for broadcast-quality video and protecting expensive hardware.",
+        bullets: [
+          "<strong>Pan/Tilt Lock Control:</strong> Always engage pan and tilt locks BEFORE attaching or detaching a camera from the fluid head.",
+          "<strong>3-Point Contact Rule:</strong> Maintain firm physical grip on the camera handle until the quick-release plate is dual-locked.",
+          "<strong>Transportation Rule:</strong> NEVER walk with a camera mounted on a tripod. Always dismount gear before moving locations.",
+          "<strong>Leveling the Ball Head:</strong> Adjust the tripod bubble level first before framing your shot to avoid crooked horizon lines."
+        ]
+      },
+      {
+        category: "Field Audio Safety",
+        title: "Microphone Care, Cables & Sound Monitoring",
+        standard: "CTB.12.03 (Audio Levels & Editing) & CTB.05.01 (Safety)",
+        summary: "Audio makes up 50% of the viewer's broadcast experience. Clean capture requires proper handling.",
+        bullets: [
+          "<strong>Microphone Selection:</strong> Use Lavalier mics for seated interviews, Shotgun mics for directional field audio, and Handhelds for stand-ups.",
+          "<strong>Over-Under Cable Wrapping:</strong> Wrap XLR cables using the roadie over-under method to prevent internal copper wire breakage.",
+          "<strong>Headphone Monitoring:</strong> Always wear closed-ear monitor headphones while recording field audio to detect wind noise or interference.",
+          "<strong>Room Tone Gathering:</strong> Record 30 seconds of quiet ambient sound at every location for post-production editing continuity."
+        ]
+      },
+      {
+        category: "Daktronics Systems",
+        title: "Daktronics Board: Interface Architecture & Access",
+        standard: "CTB.01.03 (Industry Terminology) | Sept 3 Focus",
+        summary: "Navigating the Daktronics control interface and system architecture for campus arena/stadium displays.",
+        bullets: [
+          "<strong>System Overview:</strong> Connecting Display Studio, Content Studio, and Show Control to manage real-time school visuals.",
+          "<strong>Secure Authorization:</strong> Logging into board terminals using assigned broadcast credentials. Shared passwords are prohibited.",
+          "<strong>Display Resolutions:</strong> Visual assets must match specific pixel matrix layouts to avoid graphic stretching or distortion.",
+          "<strong>Daily Maintenance:</strong> Reviewing scheduled playlist routines and clearing temporary cache files from controller hardware."
+        ]
+      },
+      {
+        category: "Daktronics Diagnostics",
+        title: "Daktronics Pre-Operation Hardware & Signal Checks",
+        standard: "CTB.01.03 (System Maintenance & Diagnostics)",
+        summary: "Executing routine hardware diagnostics to ensure broadcast stability and display health.",
+        bullets: [
+          "<strong>Signal Flow Verification:</strong> Testing video feeds from video switchers directly into the Daktronics receiver cards.",
+          "<strong>LED Module Audits:</strong> Inspecting physical outdoor board faces for dead pixels, module outages, or weather seal breaches.",
+          "<strong>Thermal Control Monitoring:</strong> Monitoring enclosure temperatures and ensuring controller PC cooling fans remain unobstructed.",
+          "<strong>Emergency Overrides:</strong> Knowing the exact button sequence to push emergency safety slides to the display in under 3 seconds."
+        ]
+      },
+      {
+        category: "Field Conduct",
+        title: "On-Location Ethics & Professional Crew Demeanor",
+        standard: "CTB.05.01 (Public vs. Private Filming Conduct)",
+        summary: "Representing our broadcast station with professionalism, poise, and respect when filming in the field.",
+        bullets: [
+          "<strong>Station Representation:</strong> Wear your press badge visibly at all times when reporting on campus or athletic events.",
+          "<strong>Respecting Boundaries:</strong> Comply immediately if directed by safety personnel or administrators to vacate a non-public area.",
+          "<strong>Equipment Vigilance:</strong> Never leave gear bags, tripod cases, or laptop editing stations unattended in public hallways.",
+          "<strong>Interviewee Courtesy:</strong> Brief interview subjects prior to rolling tape. Express gratitude for their time and contribution."
+        ]
+      },
+      {
+        category: "Seminar Preparation",
+        title: "Friday Seminar Session: The Role of Media in Community",
+        standard: "CTB.01.02 & CTB.05.01 | Sept 4 Prep",
+        summary: "Preparing for our end-of-week text-centered dialogue on journalism ethics and community impact.",
+        bullets: [
+          "<strong>Seminar Objective:</strong> Facilitating group discourse on how student broadcast reporting shapes campus culture.",
+          "<strong>Case Study Review:</strong> We will examine two real-world ethical dilemmas involving unverified anonymous sources.",
+          "<strong>Socratic Guidelines:</strong> Speak with evidence, respect opposing viewpoints, and critique ideas rather than individuals.",
+          "<strong>Preparation Assignment:</strong> Bring your completed 'Random Daily Writing' journal entry to Friday's opening circle."
+        ]
+      }
+    ];
+
+    let activeSlideIndex = 0;
+
+    function renderSlideContent() {
+      const slide = slideDeck[activeSlideIndex];
+      document.getElementById('slide-category').innerText = slide.category;
+      document.getElementById('slide-title').innerText = slide.title;
+      document.getElementById('slide-standard').innerText = slide.standard;
+      document.getElementById('slide-summary').innerText = slide.summary;
+      
+      const bulletsContainer = document.getElementById('slide-bullets');
+      bulletsContainer.innerHTML = slide.bullets.map(b => `<li>${b}</li>`).join('');
+
+      document.getElementById('slide-counter').innerText = `Slide ${activeSlideIndex + 1} of ${slideDeck.length}`;
+      document.getElementById('btn-prev').disabled = activeSlideIndex === 0;
+      document.getElementById('btn-next').disabled = activeSlideIndex === slideDeck.length - 1;
+    }
+
+    function navigateSlide(direction) {
+      activeSlideIndex += direction;
+      renderSlideContent();
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.content-panel').forEach(panel => panel.classList.remove('active'));
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+
+    function handleFormSubmission(event) {
+      event.preventDefault();
+      const studentName = document.getElementById('studentName').value;
+      alert(`Safety Sign-Off Documented for ${studentName}. Opening print review...`);
+      window.print();
+    }
+
+    // Initialize Page State
+    document.getElementById('signDate').valueAsDate = new Date();
+    renderSlideContent();
+  </script>
+</body>
+</html>
