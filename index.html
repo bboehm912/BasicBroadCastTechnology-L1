@@ -27,27 +27,58 @@
       align-items: center;
     }
 
-    .app-header {
-      text-align: center;
-      margin-bottom: 24px;
-      max-width: 900px;
-    }
-
-    .app-header h1 {
-      margin: 0 0 8px 0;
-      color: var(--primary-color);
-      font-size: 26px;
-    }
-
-    .app-header p {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 15px;
-    }
-
     .main-container {
       max-width: 900px;
       width: 100%;
+    }
+
+    /* Header Branding Area */
+    .app-header {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 20px 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .header-branding {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .school-logo {
+      height: 68px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .header-text h1 {
+      margin: 0 0 4px 0;
+      color: var(--primary-color);
+      font-size: 22px;
+    }
+
+    .header-text p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .boehm-stamp {
+      height: 95px;
+      width: 95px;
+      object-fit: contain;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .boehm-stamp:hover {
+      transform: scale(1.05) rotate(-2deg);
     }
 
     /* Tab Switcher */
@@ -188,6 +219,16 @@
       border-radius: 14px;
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
       padding: 36px;
+      position: relative;
+    }
+
+    .worksheet-header-seal {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 16px;
     }
 
     .form-grid {
@@ -209,7 +250,7 @@
       color: var(--primary-color);
     }
 
-    input[type="text"], input[type="date"], select {
+    input[type="text"], input[type="date"] {
       padding: 10px 14px;
       border: 1px solid #cbd5e1;
       border-radius: 6px;
@@ -273,21 +314,29 @@
     /* Print View Rules */
     @media print {
       body { background: white; padding: 0; }
-      .navigation-tabs, .slide-footer-nav, .btn-submit, .app-header p { display: none !important; }
+      .navigation-tabs, .slide-footer-nav, .btn-submit, .app-header { display: none !important; }
       .content-panel { display: block !important; page-break-after: always; }
       .slide-wrapper, .worksheet-card { box-shadow: none; border: 1px solid #ccc; }
+      .boehm-stamp, .school-logo { display: block !important; }
     }
   </style>
 </head>
 <body>
 
-  <div class="app-header">
-    <h1>Broadcast Journalism: Media Production & Scripting</h1>
-    <p>Week 1 Foundations: Orientation, Ethics, Safety Protocols & Equipment Operations</p>
-  </div>
-
   <div class="main-container">
     
+    <!-- App Header with Branding -->
+    <header class="app-header">
+      <div class="header-branding">
+        <img src="chisholm_logo.png" alt="Chisholm High School Logo" class="school-logo" onerror="this.style.display='none'">
+        <div class="header-text">
+          <h1>Broadcast Journalism: Media Production & Scripting</h1>
+          <p>Week 1 Foundations: Orientation, Ethics, Safety Protocols & Equipment Operations</p>
+        </div>
+      </div>
+      <img src="boehm-stamp.svg" alt="The Boehm Classroom Seal" class="boehm-stamp" onerror="this.style.display='none'">
+    </header>
+
     <!-- Tab Controls -->
     <div class="navigation-tabs">
       <button class="tab-button active" onclick="switchTab('slides-tab')">
@@ -322,8 +371,14 @@
     <!-- PANEL 2: SIGN-OFF WORKSHEET -->
     <div id="worksheet-tab" class="content-panel">
       <div class="worksheet-card">
-        <h2 style="margin-top:0; color: var(--primary-color);">Broadcast Lab Safety & Ethics Acknowledgment</h2>
-        <p style="color: var(--text-muted); font-size: 14px;">Complete and sign this form following the Week 1 orientation. Required for equipment check-out privileges.</p>
+        
+        <div class="worksheet-header-seal">
+          <div>
+            <h2 style="margin:0 0 6px 0; color: var(--primary-color);">Broadcast Lab Safety & Ethics Acknowledgment</h2>
+            <p style="color: var(--text-muted); font-size: 14px; margin:0;">Complete and sign this form following the Week 1 orientation. Required for equipment check-out privileges.</p>
+          </div>
+          <img src="boehm-stamp.svg" alt="The Boehm Classroom Stamp" style="height: 80px; width: 80px; object-fit: contain;" onerror="this.style.display='none'">
+        </div>
         
         <form id="sign-off-form" onsubmit="handleFormSubmission(event)">
           
@@ -583,4 +638,5 @@
     renderSlideContent();
   </script>
 </body>
+</html>
 </html>
