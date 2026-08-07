@@ -34,6 +34,16 @@
     .tab-btn:hover { background: #f1f5f9; }
     .tab-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
 
+    /* Native Slide Deck Styles */
+    .slide-box { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 30px; min-height: 260px; display: flex; flex-direction: column; justify-content: center; }
+    .slide { display: none; }
+    .slide.active { display: block; }
+    .slide h3 { margin-top: 0; color: #1e293b; font-size: 1.3em; border-bottom: 2px solid #2563eb; padding-bottom: 8px; }
+    .slide ul { line-height: 1.6; color: #334155; }
+    .ctrl-btn { background: #2563eb; color: #fff; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer; }
+    .ctrl-btn:hover { background: #1d4ed8; }
+
+    /* Form Styles */
     .form-group { margin-bottom: 15px; }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
     label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 0.9em; }
@@ -75,30 +85,137 @@
 
   <!-- Interactive Navigation Buttons -->
   <div class="nav-tabs">
-    <button type="button" class="tab-btn" id="deck-tab" onclick="switchTab('deck')">📑 Week 1 Lesson Deck (12 Slides)</button>
-    <button type="button" class="tab-btn active" id="form-tab" onclick="switchTab('form')">📋 Safety & Ethics Sign-Off Sheet</button>
+    <button type="button" class="tab-btn active" id="deck-tab" onclick="switchTab('deck')">📑 Week 1 Lesson Deck (12 Slides)</button>
+    <button type="button" class="tab-btn" id="form-tab" onclick="switchTab('form')">📋 Safety & Ethics Sign-Off Sheet</button>
   </div>
 
-  <!-- VIEW 1: Google Slides Deck View -->
-  <div id="deck-view" class="form-card view-content">
-    <h2>Week 1 Foundations: Lesson Deck</h2>
-    <p style="color: #64748b; font-size: 0.9em; margin-bottom: 20px;">Review all 12 slides prior to signing off on the safety acknowledgment form.</p>
-    
-    <!-- Google Slides Embed Container (Replace src with your Google Slides Publish/Embed Link) -->
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; background: #1e293b;">
-      <iframe 
-        src="https://docs.google.com/presentation/d/e/2PACX-1vQ_EXAMPLE/embed?start=false&loop=false&delayms=3000" 
-        frameborder="0" 
-        width="100%" 
-        height="100%" 
-        allowfullscreen="true" 
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-      </iframe>
+  <!-- VIEW 1: Built-In 12-Slide Deck View -->
+  <div id="deck-view" class="form-card view-content active">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+      <h2 style="margin: 0;">Week 1 Foundations: Lesson Deck</h2>
+      <span id="slide-num" style="font-weight: bold; color: #2563eb; background: #eff6ff; padding: 6px 14px; border-radius: 20px; border: 1px solid #bfdbfe;">Slide 1 of 12</span>
+    </div>
+
+    <!-- Slide Box -->
+    <div class="slide-box">
+      <div class="slide active">
+        <h3>Slide 1: Course Orientation & Overview</h3>
+        <ul>
+          <li>Welcome to Broadcast Journalism & Media Production!</li>
+          <li>Our goal: Create accurate, professional broadcasts for Chisholm High School.</li>
+          <li>Focus of Week 1: Newsroom conduct, ethics, and studio equipment safety protocols.</li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h3>Slide 2: Newsroom Roles & Station Crew</h3>
+        <ul>
+          <li><strong>Anchors & Field Reporters:</strong> Deliver factual news and conduct ethical interviews.</li>
+          <li><strong>Technical Director & Camera Ops:</strong> Manage broadcast hardware and camera setups.</li>
+          <li><strong>Station Manager:</strong> Oversees equipment checkouts, safety, and schedules.</li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h3>Slide 3: Journalistic Responsibility (Standard 1)</h3>
+        <ul>
+          <li>Maintain strict factual accuracy in all reporting.</li>
+          <li>Verify sources prior to broadcasting any story segment.</li>
+          <li>Avoid intentional distortion, bias, or sensationalism.</li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h3>Slide 4: Field Conduct & On-Campus Filming</h3>
+        <ul>
+          <li>Always represent Chisholm High School professionally in public spaces.</li>
+          <li>Respect campus policies regarding filming locations and class disruptions.</li>
+          <li>Obtain permission from instructors prior to filming inside active classrooms.</li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h3>Slide 5: Privacy Releases & Consent Protocols</h3>
+        <ul>
+          <li>All interview subjects must sign or agree to student media release protocols.</li>
+          <li>Never broadcast identifiable footage of individuals who decline to be recorded.</li>
+          <li>Safeguard digital media files on authorized station drives only.</li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h3>Slide 6: Equipment Safety Fundamentals (Standard 2)</h3>
+        <ul>
+          <li>Lab equipment is costly and vital to our daily station broadcasts.</li>
+          <li>Treat every camera, lens, tripod, and cable with care and respect.</li>
+          <li>Equipment checkout privileges depend on 100% compliance with safety rules.</li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h3>Slide 7: Camera & Tripod Operation Rules</h3>
+        <ul>
+          <li>Always verify pan/tilt locks are engaged before mounting or unmounting cameras.</li>
+          <li>Maintain 3-point contact whenever transporting equipment kits.</li>
+          <li>Use neck/shoulder straps during all mobile and field shooting sessions.</li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h3>Slide 8: Studio Lighting & Power Cable Safety</h3>
+        <ul>
+          <li>Never touch active studio lighting fixtures without protective heat gloves.</li>
+          <li>Gaff-tape power cables across walkways to eliminate trip hazards.</li>
+          <li>Never force stuck power connectors or force tight lens mounts.</li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h3>Slide 9: Daktronics Control Board Interface</h3>
+        <ul>
+          <li>Access the Daktronics control interface using assigned station credentials only.</li>
+          <li>Do not modify system settings outside approved broadcast operational guidelines.</li>
+          <li>Ensure control station hardware is kept clear of all food and liquids.</li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h3>Slide 10: System Shutdown Sequences</h3>
+        <ul>
+          <li>Always follow standard shutdown procedures for Daktronics and studio consoles.</li>
+          <li>Power down monitors, switcher units, and wireless audio receivers in order.</li>
+          <li>Return all cables neatly coiled to assigned storage racks.</li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h3>Slide 11: Incident & Hazard Reporting</h3>
+        <ul>
+          <li>Inspect all gear thoroughly during checkout and checkin.</li>
+          <li>Report damaged cables, faulty LED modules, or malfunctioning gear immediately.</li>
+          <li>Reporting issues immediately protects station privileges for everyone.</li>
+        </ul>
+      </div>
+
+      <div class="slide">
+        <h3>Slide 12: Next Steps & Safety Sign-Off</h3>
+        <ul>
+          <li>Review the safety standards outlined in this presentation.</li>
+          <li>Switch over to the <strong>Safety & Ethics Sign-Off Sheet</strong> tab above.</li>
+          <li>Complete all required fields and submit your digital signature to unlock gear access.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+      <button type="button" class="ctrl-btn" onclick="changeSlide(-1)">⬅️ Previous</button>
+      <button type="button" class="ctrl-btn" onclick="changeSlide(1)">Next ➡️</button>
     </div>
   </div>
 
   <!-- VIEW 2: Safety Form View -->
-  <div id="form-view" class="form-card view-content active">
+  <div id="form-view" class="form-card view-content">
     <h2>Broadcast Lab Safety & Ethics Acknowledgment</h2>
     <p style="color: #64748b; font-size: 0.9em;">Complete and sign this form following Week 1 orientation. Required for equipment check-out privileges.</p>
 
@@ -177,16 +294,29 @@
 </div>
 
 <script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+
+  function updateSlideDisplay() {
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === currentSlide);
+    });
+    document.getElementById('slide-num').innerText = `Slide ${currentSlide + 1} of ${slides.length}`;
+  }
+
+  function changeSlide(direction) {
+    currentSlide += direction;
+    if (currentSlide < 0) currentSlide = slides.length - 1;
+    if (currentSlide >= slides.length) currentSlide = 0;
+    updateSlideDisplay();
+  }
+
   function switchTab(tab) {
-    // Hide both views
     document.getElementById('deck-view').classList.remove('active');
     document.getElementById('form-view').classList.remove('active');
-    
-    // Remove active styles from buttons
     document.getElementById('deck-tab').classList.remove('active');
     document.getElementById('form-tab').classList.remove('active');
     
-    // Activate selected view and button
     if (tab === 'deck') {
       document.getElementById('deck-view').classList.add('active');
       document.getElementById('deck-tab').classList.add('active');
