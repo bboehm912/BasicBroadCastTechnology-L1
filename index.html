@@ -37,7 +37,7 @@
     .tab-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
 
     /* Slide Deck Formatting */
-    .slide-box { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 25px; min-height: 420px; display: flex; flex-direction: column; justify-content: space-between; }
+    .slide-box { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 25px; min-height: 440px; display: flex; flex-direction: column; justify-content: space-between; }
     .slide { display: none; }
     .slide.active { display: block; }
     
@@ -50,8 +50,7 @@
     .slide-content li { margin-bottom: 10px; }
     
     .slide-media { text-align: center; }
-    .slide-media img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    .media-caption { font-size: 0.8em; color: #64748b; margin-top: 6px; font-style: italic; }
+    .slide-media img { width: 100%; height: 210px; object-fit: cover; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
 
     .ctrl-btn { background: #2563eb; color: #fff; border: none; padding: 10px 22px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
     .ctrl-btn:hover { background: #1d4ed8; }
@@ -126,9 +125,17 @@
             </ul>
           </div>
           <div class="slide-media">
-            <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=600&q=80" alt="News Studio" />
-            <div class="media-caption">Chisholm Broadcast Studio & Control Desk</div>
+            <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=600&q=80" alt="Broadcast Studio Camera" />
           </div>
+        </div>
+        <div style="margin-top: 18px; background: #f0f9ff; border-left: 4px solid #0284c7; padding: 12px 16px; border-radius: 6px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <strong style="color: #0369a1; font-size: 0.9em;">✍️ Random Daily Broadcast Writing Prompt</strong>
+            <button type="button" onclick="generatePrompt()" style="background: #0284c7; color: white; border: none; padding: 5px 12px; border-radius: 4px; font-size: 0.78em; font-weight: bold; cursor: pointer;">Generate New Prompt 🔄</button>
+          </div>
+          <p id="prompt-display" style="margin: 0; color: #334155; font-size: 0.88em; font-style: italic;">
+            "Headline Challenge: You have 30 seconds of airtime to open today's broadcast. What is Chisholm High's top news story, and what is your lead hook sentence?"
+          </p>
         </div>
       </div>
 
@@ -147,9 +154,14 @@
             </ul>
           </div>
           <div class="slide-media">
-            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="Broadcast Control Room" />
-            <div class="media-caption">Control Room & Switcher Operations</div>
+            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="Video Switcher" />
           </div>
+        </div>
+        <div style="margin-top: 18px; background: #fdf4ff; border-left: 4px solid #c026d3; padding: 12px 16px; border-radius: 6px;">
+          <strong style="color: #86198f; font-size: 0.9em;">💡 Crew Spotlight: Cross-Communication Protocol</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.88em; font-style: italic;">
+            "The Technical Director and Floor Manager must communicate via headset tally cues 5 seconds prior to going live. Clear audio cues prevent missed camera cuts!"
+          </p>
         </div>
       </div>
 
@@ -168,9 +180,14 @@
             </ul>
           </div>
           <div class="slide-media">
-            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80" alt="Journalism Reporting" />
-            <div class="media-caption">Ethical Fact-Checking & Script Verification</div>
+            <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=600&q=80" alt="Broadcast Microphone" />
           </div>
+        </div>
+        <div style="margin-top: 18px; background: #fff7ed; border-left: 4px solid #ea580c; padding: 12px 16px; border-radius: 6px;">
+          <strong style="color: #c2410c; font-size: 0.9em;">⚖️ Ethical Scenario Challenge</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.88em; font-style: italic;">
+            "If an eyewitness interview contradicts official school statements, air both perspectives with clear source attribution rather than taking a side."
+          </p>
         </div>
       </div>
 
@@ -190,8 +207,13 @@
           </div>
           <div class="slide-media">
             <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Field Interview" />
-            <div class="media-caption">Field Reporting Conduct & Classroom Access</div>
           </div>
+        </div>
+        <div style="margin-top: 18px; background: #f0fdf4; border-left: 4px solid #16a34a; padding: 12px 16px; border-radius: 6px;">
+          <strong style="color: #15803d; font-size: 0.9em;">🏫 Field Access Rule of Thumb</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.88em; font-style: italic;">
+            "Never place tripods or light stands within 6 feet of emergency exit doors or main stairwells during passing periods!"
+          </p>
         </div>
       </div>
 
@@ -210,9 +232,14 @@
             </ul>
           </div>
           <div class="slide-media">
-            <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=600&q=80" alt="Media Clearance" />
-            <div class="media-caption">Copyright Asset Management & Subject Releases</div>
+            <img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?auto=format&fit=crop&w=600&q=80" alt="Video Editing Workstation" />
           </div>
+        </div>
+        <div style="margin-top: 18px; background: #faf5ff; border-left: 4px solid #9333ea; padding: 12px 16px; border-radius: 6px;">
+          <strong style="color: #7e22ce; font-size: 0.9em;">🎵 Copyright Pro-Tip: Audio Library Access</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.88em; font-style: italic;">
+            "Always source intro/outro music from the station's pre-cleared YouTube Audio Library folder. Commercial tracks will get our online stream muted instantly!"
+          </p>
         </div>
       </div>
 
@@ -231,9 +258,14 @@
             </ul>
           </div>
           <div class="slide-media">
-            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="Lab Equipment Safety" />
-            <div class="media-caption">Broadcast Gear Station & Checkout Storage</div>
+            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80" alt="Camera Lens Storage" />
           </div>
+        </div>
+        <div style="margin-top: 18px; background: #fef2f2; border-left: 4px solid #dc2626; padding: 12px 16px; border-radius: 6px;">
+          <strong style="color: #b91c1c; font-size: 0.9em;">⚠️ Lab Safety Enforcement</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.88em; font-style: italic;">
+            "A single drink bottle near an editing desk results in a 1-week suspension of studio checkout privileges for the entire crew!"
+          </p>
         </div>
       </div>
 
@@ -252,9 +284,14 @@
             </ul>
           </div>
           <div class="slide-media">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="Camera Tripod Setup" />
-            <div class="media-caption">Tripod Mounting & Quick-Release Plate Security</div>
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="Camera on Tripod" />
           </div>
+        </div>
+        <div style="margin-top: 18px; background: #eff6ff; border-left: 4px solid #2563eb; padding: 12px 16px; border-radius: 6px;">
+          <strong style="color: #1d4ed8; font-size: 0.9em;">🔍 3-Point Pre-Flight Tripod Check</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.88em; font-style: italic;">
+            "1. Lock pan drag. 2. Verify base plate click. 3. Double-check thumb lock screw BEFORE letting go of the camera body!"
+          </p>
         </div>
       </div>
 
@@ -274,8 +311,13 @@
           </div>
           <div class="slide-media">
             <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80" alt="Studio Lights" />
-            <div class="media-caption">Gaffer Taping Cables & Light Heat Handling</div>
           </div>
+        </div>
+        <div style="margin-top: 18px; background: #fffbe3; border-left: 4px solid #d97706; padding: 12px 16px; border-radius: 6px;">
+          <strong style="color: #b45309; font-size: 0.9em;">🔥 Thermal Hazard Protocol</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.88em; font-style: italic;">
+            "Allow studio lights 10 minutes of fan-cooled cooldown time before packing them into storage bags. Melted canvas cases are non-repairable!"
+          </p>
         </div>
       </div>
 
@@ -294,9 +336,14 @@
             </ul>
           </div>
           <div class="slide-media">
-            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Daktronics Interface" />
-            <div class="media-caption">Daktronics Control Board & Media Displays</div>
+            <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80" alt="Stadium Scoreboard Lights" />
           </div>
+        </div>
+        <div style="margin-top: 18px; background: #ecfeff; border-left: 4px solid #0891b2; padding: 12px 16px; border-radius: 6px;">
+          <strong style="color: #0e7490; font-size: 0.9em;">🎮 Stadium Display Graphic Standard</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.88em; font-style: italic;">
+            "Keep all graphic text inside the 80% Action-Safe zone to prevent stadium border bezels from cutting off player names!"
+          </p>
         </div>
       </div>
 
@@ -315,9 +362,14 @@
             </ul>
           </div>
           <div class="slide-media">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="System Shutdown" />
-            <div class="media-caption">Standard Console Shutdown & Power Sequencing</div>
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Console Shutdown" />
           </div>
+        </div>
+        <div style="margin-top: 18px; background: #f8fafc; border-left: 4px solid #475569; padding: 12px 16px; border-radius: 6px;">
+          <strong style="color: #334155; font-size: 0.9em;">🔌 Shutdown Sequence Memory Lock</strong>
+          <p style="margin: 4px 0 0 0; color: #475569; font-size: 0.88em; font-style: italic;">
+            "Software Exit ➡️ Video Board Receiver Power-Off ➡️ Console Power Switch ➡️ Dust Cover Application."
+          </p>
         </div>
       </div>
 
@@ -336,9 +388,14 @@
             </ul>
           </div>
           <div class="slide-media">
-            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Equipment Fault Inspection" />
-            <div class="media-caption">Pre-Checkout Inspections & Incident Reporting</div>
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Equipment Inspection" />
           </div>
+        </div>
+        <div style="margin-top: 18px; background: #fff1f2; border-left: 4px solid #e11d48; padding: 12px 16px; border-radius: 6px;">
+          <strong style="color: #be123c; font-size: 0.9em;">📋 Incident Logging Quick-Action</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.88em; font-style: italic;">
+            "Spotted a frayed XLR cable or damaged tripod latch? Tag it with red tape and log it immediately in the Station Defect Binder."
+          </p>
         </div>
       </div>
 
@@ -357,9 +414,14 @@
             </ul>
           </div>
           <div class="slide-media">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Form Sign Off" />
-            <div class="media-caption">Complete Sign-Off to Unlock Equipment Privileges</div>
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Sign-Off Verification" />
           </div>
+        </div>
+        <div style="margin-top: 18px; background: #f0fdf4; border-left: 4px solid #059669; padding: 12px 16px; border-radius: 6px;">
+          <strong style="color: #047857; font-size: 0.9em;">🎓 Ready for Equipment Clearance!</strong>
+          <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.88em; font-style: italic;">
+            "You have completed all 12 curriculum slides! Head up to the 'Safety & Ethics Sign-Off Sheet' tab to lock in your certification."
+          </p>
         </div>
       </div>
     </div>
@@ -453,6 +515,19 @@
 <script>
   let currentSlide = 0;
   const slides = document.querySelectorAll('.slide');
+
+  const writingPrompts = [
+    '"Headline Challenge: You have 30 seconds of airtime to open today\'s broadcast. What is Chisholm High\'s top news story, and what is your lead hook sentence?"',
+    '"Ethics Check: An unverified video of a campus event is trending on social media. What two verification steps must you take before airing it?"',
+    '"Field Audio Safety: You are filming an outdoor interview on a windy bleacher. What equipment adjustments will save your audio track?"',
+    '"Perspective Pitch: How would you reframe a routine school cafeteria announcement into a compelling 90-second feature package?"',
+    '"Technical Check: You notice a loose tripod quick-release plate right before a live segment starts. What is your immediate protocol?"'
+  ];
+
+  function generatePrompt() {
+    const randomIdx = Math.floor(Math.random() * writingPrompts.length);
+    document.getElementById('prompt-display').innerText = writingPrompts[randomIdx];
+  }
 
   function updateSlideDisplay() {
     slides.forEach((slide, index) => {
