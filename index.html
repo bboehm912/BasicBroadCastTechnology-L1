@@ -5,23 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Broadcast Journalism: Media Production & Scripting</title>
   <style>
-    body { font-family: Arial, sans-serif; background-color: #eef2f7; margin: 0; padding: 20px; color: #333; }
-    .container { max-width: 850px; margin: 0 auto; }
-    .header-card, .form-card { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 20px; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #eef2f7; margin: 0; padding: 20px; color: #1e293b; }
+    .container { max-width: 900px; margin: 0 auto; }
+    
+    /* Header Styles */
+    .header-card, .form-card { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); margin-bottom: 20px; }
     .header-flex { display: flex; align-items: center; justify-content: space-between; }
     .header-left { display: flex; align-items: center; gap: 15px; }
     .header-left img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid #102a43; }
     
-    /* Stamp with photo inside */
+    /* Stamp with photo overlay */
     .stamp-container { position: relative; width: 80px; height: 80px; }
     .stamp-container .stamp-bg { width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 2; pointer-events: none; }
     .stamp-container .photo-inner { width: 50px; height: 50px; border-radius: 50%; position: absolute; top: 15px; left: 15px; object-fit: cover; z-index: 1; }
 
-    /* Interactive Navigation Tabs */
+    /* Navigation Tabs */
     .nav-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
     .tab-btn { 
       flex: 1; 
-      padding: 12px; 
+      padding: 14px; 
       border-radius: 8px; 
       border: 1px solid #cbd5e1; 
       background: #fff; 
@@ -31,16 +33,27 @@
       cursor: pointer; 
       transition: all 0.2s ease;
     }
-    .tab-btn:hover { background: #f1f5f9; }
+    .tab-btn:hover { background: #f8fafc; }
     .tab-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
 
-    /* Native Slide Deck Styles */
-    .slide-box { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 30px; min-height: 260px; display: flex; flex-direction: column; justify-content: center; }
+    /* Slide Deck Formatting */
+    .slide-box { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; padding: 25px; min-height: 420px; display: flex; flex-direction: column; justify-content: space-between; }
     .slide { display: none; }
     .slide.active { display: block; }
-    .slide h3 { margin-top: 0; color: #1e293b; font-size: 1.3em; border-bottom: 2px solid #2563eb; padding-bottom: 8px; }
-    .slide ul { line-height: 1.6; color: #334155; }
-    .ctrl-btn { background: #2563eb; color: #fff; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer; }
+    
+    .slide-header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #2563eb; padding-bottom: 10px; margin-bottom: 15px; }
+    .slide-title { margin: 0; font-size: 1.3em; color: #0f172a; }
+    .std-badge { background: #dbeafe; color: #1e40af; font-size: 0.75em; font-weight: bold; padding: 4px 10px; border-radius: 6px; border: 1px solid #bfdbfe; text-transform: uppercase; white-space: nowrap; }
+
+    .slide-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; align-items: center; }
+    .slide-content ul { padding-left: 20px; line-height: 1.6; color: #334155; margin: 0; }
+    .slide-content li { margin-bottom: 10px; }
+    
+    .slide-media { text-align: center; }
+    .slide-media img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .media-caption { font-size: 0.8em; color: #64748b; margin-top: 6px; font-style: italic; }
+
+    .ctrl-btn { background: #2563eb; color: #fff; border: none; padding: 10px 22px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
     .ctrl-btn:hover { background: #1d4ed8; }
 
     /* Form Styles */
@@ -75,7 +88,7 @@
           <p style="margin: 5px 0 0 0; color: #64748b; font-size: 0.9em;">Week 1 Foundations: Orientation, Ethics, Safety Protocols & Equipment Operations</p>
         </div>
       </div>
-      <!-- TOP RIGHT: Stamp SVG with Photo embedded behind center -->
+      <!-- TOP RIGHT: Classroom Stamp Seal -->
       <div class="stamp-container">
         <img class="photo-inner" src="boehm_photo.jpg" alt="Instructor Photo" />
         <img class="stamp-bg" src="boehm-stamp.svg" alt="Classroom Seal" />
@@ -85,132 +98,276 @@
 
   <!-- Interactive Navigation Buttons -->
   <div class="nav-tabs">
-    <button type="button" class="tab-btn active" id="deck-tab" onclick="switchTab('deck')">📑 Week 1 Lesson Deck (12 Slides)</button>
+    <button type="button" class="tab-btn active" id="deck-tab" onclick="switchTab('deck')">📑 Week 1 Curriculum Deck (12 Slides)</button>
     <button type="button" class="tab-btn" id="form-tab" onclick="switchTab('form')">📋 Safety & Ethics Sign-Off Sheet</button>
   </div>
 
-  <!-- VIEW 1: Built-In 12-Slide Deck View -->
+  <!-- VIEW 1: Rigorous Visual Slide Deck -->
   <div id="deck-view" class="form-card view-content active">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-      <h2 style="margin: 0;">Week 1 Foundations: Lesson Deck</h2>
-      <span id="slide-num" style="font-weight: bold; color: #2563eb; background: #eff6ff; padding: 6px 14px; border-radius: 20px; border: 1px solid #bfdbfe;">Slide 1 of 12</span>
+      <h2 style="margin: 0; font-size: 1.2em; color: #0f172a;">Week 1 Foundations: CTE Broadcast Curriculum</h2>
+      <span id="slide-num" style="font-weight: bold; color: #2563eb; background: #eff6ff; padding: 6px 14px; border-radius: 20px; border: 1px solid #bfdbfe; font-size: 0.85em;">Slide 1 of 12</span>
     </div>
 
-    <!-- Slide Box -->
+    <!-- Slide Container -->
     <div class="slide-box">
+      <!-- SLIDE 1 -->
       <div class="slide active">
-        <h3>Slide 1: Course Orientation & Overview</h3>
-        <ul>
-          <li>Welcome to Broadcast Journalism & Media Production!</li>
-          <li>Our goal: Create accurate, professional broadcasts for Chisholm High School.</li>
-          <li>Focus of Week 1: Newsroom conduct, ethics, and studio equipment safety protocols.</li>
-        </ul>
+        <div class="slide-header">
+          <h3 class="slide-title">1. Course Orientation & Studio Objectives</h3>
+          <span class="std-badge">CTE Standard CTB.01.01</span>
+        </div>
+        <div class="slide-grid">
+          <div class="slide-content">
+            <ul>
+              <li><strong>Station Mission:</strong> Produce objective, high-quality, student-led news packages and live broadcasts for Chisholm High School.</li>
+              <li><strong>Professional Expectations:</strong> Workplaces run on accountability, punctuality, deadline enforcement, and equipment stewardship.</li>
+              <li><strong>Week 1 Goal:</strong> Complete technical orientation, review journalism ethics, pass lab safety check, and earn station credentials.</li>
+            </ul>
+          </div>
+          <div class="slide-media">
+            <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=600&q=80" alt="News Studio" />
+            <div class="media-caption">Chisholm Broadcast Studio & Control Desk</div>
+          </div>
+        </div>
       </div>
 
+      <!-- SLIDE 2 -->
       <div class="slide">
-        <h3>Slide 2: Newsroom Roles & Station Crew</h3>
-        <ul>
-          <li><strong>Anchors & Field Reporters:</strong> Deliver factual news and conduct ethical interviews.</li>
-          <li><strong>Technical Director & Camera Ops:</strong> Manage broadcast hardware and camera setups.</li>
-          <li><strong>Station Manager:</strong> Oversees equipment checkouts, safety, and schedules.</li>
-        </ul>
+        <div class="slide-header">
+          <h3 class="slide-title">2. Newsroom Roles & Production Workflow</h3>
+          <span class="std-badge">CTE Standard CTB.02.01</span>
+        </div>
+        <div class="slide-grid">
+          <div class="slide-content">
+            <ul>
+              <li><strong>Talent & Editorial:</strong> Anchors and reporters research stories, write script copy, conduct field interviews, and verify facts.</li>
+              <li><strong>Control Room Crew:</strong> Technical Director operates video switchers; Audio Engineer manages mix boards; Graphics Specialist runs lower-thirds.</li>
+              <li><strong>Floor Crew:</strong> Camera Operators execute framing/focus; Floor Manager coordinates timing cues with talent.</li>
+            </ul>
+          </div>
+          <div class="slide-media">
+            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="Broadcast Control Room" />
+            <div class="media-caption">Control Room & Switcher Operations</div>
+          </div>
+        </div>
       </div>
 
+      <!-- SLIDE 3 -->
       <div class="slide">
-        <h3>Slide 3: Journalistic Responsibility (Standard 1)</h3>
-        <ul>
-          <li>Maintain strict factual accuracy in all reporting.</li>
-          <li>Verify sources prior to broadcasting any story segment.</li>
-          <li>Avoid intentional distortion, bias, or sensationalism.</li>
-        </ul>
+        <div class="slide-header">
+          <h3 class="slide-title">3. Journalistic Integrity & News Ethics</h3>
+          <span class="std-badge">CTE Standard CTB.01.02</span>
+        </div>
+        <div class="slide-grid">
+          <div class="slide-content">
+            <ul>
+              <li><strong>SPJ Code Alignment:</strong> Seek truth and report it; minimize harm; act independently; be accountable and transparent.</li>
+              <li><strong>Source Verification:</strong> Always cross-reference claims with minimum two reliable sources prior to air.</li>
+              <li><strong>Zero Tolerance:</strong> Fabrication of quotes, staging non-feature events, or editorializing hard news triggers immediate crew suspension.</li>
+            </ul>
+          </div>
+          <div class="slide-media">
+            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80" alt="Journalism Reporting" />
+            <div class="media-caption">Ethical Fact-Checking & Script Verification</div>
+          </div>
+        </div>
       </div>
 
+      <!-- SLIDE 4 -->
       <div class="slide">
-        <h3>Slide 4: Field Conduct & On-Campus Filming</h3>
-        <ul>
-          <li>Always represent Chisholm High School professionally in public spaces.</li>
-          <li>Respect campus policies regarding filming locations and class disruptions.</li>
-          <li>Obtain permission from instructors prior to filming inside active classrooms.</li>
-        </ul>
+        <div class="slide-header">
+          <h3 class="slide-title">4. Campus Reporting & Public Law</h3>
+          <span class="std-badge">CTE Standard CTB.01.02</span>
+        </div>
+        <div class="slide-grid">
+          <div class="slide-content">
+            <ul>
+              <li><strong>Public vs. Restricted Space:</strong> Filming in hallways or outdoor commons follows general public guidelines; active classrooms require instructor permission.</li>
+              <li><strong>Minimizing Disruption:</strong> Field crews must not obstruct instruction, block egress routes, or breach emergency protocols.</li>
+              <li><strong>Interview Courtesy:</strong> State your full name, outlet, and broadcast intent before pressing record.</li>
+            </ul>
+          </div>
+          <div class="slide-media">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Field Interview" />
+            <div class="media-caption">Field Reporting Conduct & Classroom Access</div>
+          </div>
+        </div>
       </div>
 
+      <!-- SLIDE 5 -->
       <div class="slide">
-        <h3>Slide 5: Privacy Releases & Consent Protocols</h3>
-        <ul>
-          <li>All interview subjects must sign or agree to student media release protocols.</li>
-          <li>Never broadcast identifiable footage of individuals who decline to be recorded.</li>
-          <li>Safeguard digital media files on authorized station drives only.</li>
-        </ul>
+        <div class="slide-header">
+          <h3 class="slide-title">5. Copyright, Media Releases & Privacy</h3>
+          <span class="std-badge">CTE Standard CTB.01.04</span>
+        </div>
+        <div class="slide-grid">
+          <div class="slide-content">
+            <ul>
+              <li><strong>Intellectual Property:</strong> Broadcasts must use royalty-free music, Creative Commons assets, or student-composed audio tracks.</li>
+              <li><strong>Fair Use Criteria:</strong> Short commentary/criticism excerpts are allowed, but commercial music overlays are strictly prohibited.</li>
+              <li><strong>Media Clearance:</strong> All featured interview subjects must have signed media releases on file in the main station drive.</li>
+            </ul>
+          </div>
+          <div class="slide-media">
+            <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=600&q=80" alt="Media Clearance" />
+            <div class="media-caption">Copyright Asset Management & Subject Releases</div>
+          </div>
+        </div>
       </div>
 
+      <!-- SLIDE 6 -->
       <div class="slide">
-        <h3>Slide 6: Equipment Safety Fundamentals (Standard 2)</h3>
-        <ul>
-          <li>Lab equipment is costly and vital to our daily station broadcasts.</li>
-          <li>Treat every camera, lens, tripod, and cable with care and respect.</li>
-          <li>Equipment checkout privileges depend on 100% compliance with safety rules.</li>
-        </ul>
+        <div class="slide-header">
+          <h3 class="slide-title">6. Lab Safety & Asset Management</h3>
+          <span class="std-badge">CTE Standard CTB.05.01</span>
+        </div>
+        <div class="slide-grid">
+          <div class="slide-content">
+            <ul>
+              <li><strong>Resource Stewardship:</strong> Broadcast cameras and production gear represent significant school capital investments.</li>
+              <li><strong>Gear Privilege Policy:</strong> Access to field kits is contingent on passing this safety orientation and maintaining clean check-out records.</li>
+              <li><strong>Zero Hazard Policy:</strong> Keep food, sugary beverages, and unsealed liquids completely clear of editing suites and control consoles.</li>
+            </ul>
+          </div>
+          <div class="slide-media">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="Lab Equipment Safety" />
+            <div class="media-caption">Broadcast Gear Station & Checkout Storage</div>
+          </div>
+        </div>
       </div>
 
+      <!-- SLIDE 7 -->
       <div class="slide">
-        <h3>Slide 7: Camera & Tripod Operation Rules</h3>
-        <ul>
-          <li>Always verify pan/tilt locks are engaged before mounting or unmounting cameras.</li>
-          <li>Maintain 3-point contact whenever transporting equipment kits.</li>
-          <li>Use neck/shoulder straps during all mobile and field shooting sessions.</li>
-        </ul>
+        <div class="slide-header">
+          <h3 class="slide-title">7. Rigging Cameras & Tripod Protocol</h3>
+          <span class="std-badge">CTE Standard CTB.01.03</span>
+        </div>
+        <div class="slide-grid">
+          <div class="slide-content">
+            <ul>
+              <li><strong>Lock Verification:</strong> Always engage pan and tilt drag locks BEFORE mounting or unmounting camera quick-release plates.</li>
+              <li><strong>Three-Point Contact:</strong> Keep hands secured on camera body and tripod handle while adjusting column height.</li>
+              <li><strong>Transport Protocol:</strong> Never move a tripod with the camera attached; unmount the body into its padded case before moving locations.</li>
+            </ul>
+          </div>
+          <div class="slide-media">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="Camera Tripod Setup" />
+            <div class="media-caption">Tripod Mounting & Quick-Release Plate Security</div>
+          </div>
+        </div>
       </div>
 
+      <!-- SLIDE 8 -->
       <div class="slide">
-        <h3>Slide 8: Studio Lighting & Power Cable Safety</h3>
-        <ul>
-          <li>Never touch active studio lighting fixtures without protective heat gloves.</li>
-          <li>Gaff-tape power cables across walkways to eliminate trip hazards.</li>
-          <li>Never force stuck power connectors or force tight lens mounts.</li>
-        </ul>
+        <div class="slide-header">
+          <h3 class="slide-title">8. Studio Lighting & Electrical Safety</h3>
+          <span class="std-badge">CTE Standard CTB.05.01</span>
+        </div>
+        <div class="slide-grid">
+          <div class="slide-content">
+            <ul>
+              <li><strong>Thermal Hazards:</strong> Studio key lights and halogen fixtures generate intense heat; handle housings with heat-resistant gloves only.</li>
+              <li><strong>Trip Hazards:</strong> Secure all floor-run AC cables and XLR audio lines with heavy gaffer tape across walking paths.</li>
+              <li><strong>Cable Coiling:</strong> Use the over-under coiling method for all cables to prevent wire fraying and structural cable memory damage.</li>
+            </ul>
+          </div>
+          <div class="slide-media">
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80" alt="Studio Lights" />
+            <div class="media-caption">Gaffer Taping Cables & Light Heat Handling</div>
+          </div>
+        </div>
       </div>
 
+      <!-- SLIDE 9 -->
       <div class="slide">
-        <h3>Slide 9: Daktronics Control Board Interface</h3>
-        <ul>
-          <li>Access the Daktronics control interface using assigned station credentials only.</li>
-          <li>Do not modify system settings outside approved broadcast operational guidelines.</li>
-          <li>Ensure control station hardware is kept clear of all food and liquids.</li>
-        </ul>
+        <div class="slide-header">
+          <h3 class="slide-title">9. Daktronics Board Interface Operations</h3>
+          <span class="std-badge">CTE Standard CTB.03.01</span>
+        </div>
+        <div class="slide-grid">
+          <div class="slide-content">
+            <ul>
+              <li><strong>System Access:</strong> Log in using authorized Chisholm Station crew credentials only; unauthorized setting edits are logged.</li>
+              <li><strong>Graphic Specs:</strong> Render all stadium display graphics at native resolution (16:9 aspect ratio, uncompressed PNG/MP4 format).</li>
+              <li><strong>Live Feed Overlays:</strong> Coordinate scorekeeping triggers with production directors during active athletic events.</li>
+            </ul>
+          </div>
+          <div class="slide-media">
+            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Daktronics Interface" />
+            <div class="media-caption">Daktronics Control Board & Media Displays</div>
+          </div>
+        </div>
       </div>
 
+      <!-- SLIDE 10 -->
       <div class="slide">
-        <h3>Slide 10: System Shutdown Sequences</h3>
-        <ul>
-          <li>Always follow standard shutdown procedures for Daktronics and studio consoles.</li>
-          <li>Power down monitors, switcher units, and wireless audio receivers in order.</li>
-          <li>Return all cables neatly coiled to assigned storage racks.</li>
-        </ul>
+        <div class="slide-header">
+          <h3 class="slide-title">10. Daktronics System Shutdown</h3>
+          <span class="std-badge">CTE Standard CTB.03.02</span>
+        </div>
+        <div class="slide-grid">
+          <div class="slide-content">
+            <ul>
+              <li><strong>Order of Operations:</strong> 1) Close display software, 2) Send power-off signal to LED wall receivers, 3) Power down console.</li>
+              <li><strong>Data Backup:</strong> Export session logs and archive event graphic packages to the main server before logging off.</li>
+              <li><strong>Console Cover Protocol:</strong> Place dust covers over Daktronics control terminals after components have cooled.</li>
+            </ul>
+          </div>
+          <div class="slide-media">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="System Shutdown" />
+            <div class="media-caption">Standard Console Shutdown & Power Sequencing</div>
+          </div>
+        </div>
       </div>
 
+      <!-- SLIDE 11 -->
       <div class="slide">
-        <h3>Slide 11: Incident & Hazard Reporting</h3>
-        <ul>
-          <li>Inspect all gear thoroughly during checkout and checkin.</li>
-          <li>Report damaged cables, faulty LED modules, or malfunctioning gear immediately.</li>
-          <li>Reporting issues immediately protects station privileges for everyone.</li>
-        </ul>
+        <div class="slide-header">
+          <h3 class="slide-title">11. Equipment Damage & Fault Logging</h3>
+          <span class="std-badge">CTE Standard CTB.05.01</span>
+        </div>
+        <div class="slide-grid">
+          <div class="slide-content">
+            <ul>
+              <li><strong>Pre/Post Inspection:</strong> Inspect lenses for smudges/scratches and cables for tears during checkout and checkin.</li>
+              <li><strong>Immediate Logging:</strong> If gear malfunctions or sustains damage, submit a station Incident Form immediately—do not store broken gear back on shelves.</li>
+              <li><strong>Honesty Policy:</strong> Promptly reporting accidental damage maintains crew standing; concealing damage leads to revocation of checkout privileges.</li>
+            </ul>
+          </div>
+          <div class="slide-media">
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Equipment Fault Inspection" />
+            <div class="media-caption">Pre-Checkout Inspections & Incident Reporting</div>
+          </div>
+        </div>
       </div>
 
+      <!-- SLIDE 12 -->
       <div class="slide">
-        <h3>Slide 12: Next Steps & Safety Sign-Off</h3>
-        <ul>
-          <li>Review the safety standards outlined in this presentation.</li>
-          <li>Switch over to the <strong>Safety & Ethics Sign-Off Sheet</strong> tab above.</li>
-          <li>Complete all required fields and submit your digital signature to unlock gear access.</li>
-        </ul>
+        <div class="slide-header">
+          <h3 class="slide-title">12. Lab Certification & Sign-Off</h3>
+          <span class="std-badge">Course Completion Requirement</span>
+        </div>
+        <div class="slide-grid">
+          <div class="slide-content">
+            <ul>
+              <li><strong>Next Step:</strong> Click the <strong>"Safety & Ethics Sign-Off Sheet"</strong> tab at the top of the page.</li>
+              <li><strong>Verification:</strong> Complete all student details, acknowledge all safety/ethics standards, and type your legal full name in the signature box.</li>
+              <li><strong>Authorization:</strong> Submit the form to generate your official record for instructor authorization and equipment checkout clearance.</li>
+            </ul>
+          </div>
+          <div class="slide-media">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Form Sign Off" />
+            <div class="media-caption">Complete Sign-Off to Unlock Equipment Privileges</div>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Controls -->
     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
-      <button type="button" class="ctrl-btn" onclick="changeSlide(-1)">⬅️ Previous</button>
-      <button type="button" class="ctrl-btn" onclick="changeSlide(1)">Next ➡️</button>
+      <button type="button" class="ctrl-btn" onclick="changeSlide(-1)">⬅️ Previous Slide</button>
+      <button type="button" class="ctrl-btn" onclick="changeSlide(1)">Next Slide ➡️</button>
     </div>
   </div>
 
