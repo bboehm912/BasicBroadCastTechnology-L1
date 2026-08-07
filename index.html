@@ -81,7 +81,7 @@
     <div class="header-flex">
       <div class="header-left">
         <!-- TOP LEFT: Chisholm Logo -->
-        <img src="chisholm_logo.png" alt="Chisholm High School Logo" />
+        <img src="Chisholmlogo.png" alt="Chisholm High School Logo" />
         <div>
           <h2 style="margin: 0; font-size: 1.3em;">Broadcast Journalism: Media Production & Scripting</h2>
           <p style="margin: 5px 0 0 0; color: #64748b; font-size: 0.9em;">Day 1 Foundations: Orientation, Ethics, Safety Protocols & Equipment Operations</p>
@@ -119,13 +119,14 @@
         <div class="slide-grid">
           <div class="slide-content">
             <ul>
-              <li><strong>Station Mission:</strong> Produce objective, high-quality, student-led news packages and live broadcasts for Chisholm High School.</li>
-              <li><strong>Professional Expectations:</strong> Workplaces run on accountability, punctuality, deadline enforcement, and equipment stewardship.</li>
+              <li><strong>Instructor & Leadership:</strong> Welcome to Broadcast Journalism with Mr. Boehm! Our newsroom is modeled after professional broadcast environments focused on accountability, teamwork, and high production value.</li>
+              <li><strong>Station Mission:</strong> Under Mr. Boehm's direction, student crews produce objective, high-quality news packages, sports coverage, and live broadcasts for Chisholm High School.</li>
+              <li><strong>The O.T.I.S. Broadcast Framework:</strong> Named in honor of station mascot Otis, our daily studio standard requires <strong>O</strong>bjectivity, <strong>T</strong>ruthfulness, <strong>I</strong>ntegrity, and <strong>S</strong>afety/Stewardship in all media productions.</li>
               <li><strong>Day 1 Goal:</strong> Complete technical orientation, review journalism ethics, pass lab safety check, and earn station credentials.</li>
             </ul>
           </div>
           <div class="slide-media">
-            <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=600&q=80" alt="Broadcast Studio Camera" />
+            <img src="otis-and-boehm.jpg" alt="Mr. Boehm and Station Mascot Otis" />
           </div>
         </div>
         <div style="margin-top: 18px; background: #f0f9ff; border-left: 4px solid #0284c7; padding: 12px 16px; border-radius: 6px;">
@@ -538,24 +539,16 @@
 
   function changeSlide(direction) {
     currentSlide += direction;
-    if (currentSlide < 0) currentSlide = slides.length - 1;
-    if (currentSlide >= slides.length) currentSlide = 0;
+    if (currentSlide < 0) currentSlide = 0;
+    if (currentSlide >= slides.length) currentSlide = slides.length - 1;
     updateSlideDisplay();
   }
 
   function switchTab(tab) {
-    document.getElementById('deck-view').classList.remove('active');
-    document.getElementById('form-view').classList.remove('active');
-    document.getElementById('deck-tab').classList.remove('active');
-    document.getElementById('form-tab').classList.remove('active');
-    
-    if (tab === 'deck') {
-      document.getElementById('deck-view').classList.add('active');
-      document.getElementById('deck-tab').classList.add('active');
-    } else {
-      document.getElementById('form-view').classList.add('active');
-      document.getElementById('form-tab').classList.add('active');
-    }
+    document.getElementById('deck-tab').classList.toggle('active', tab === 'deck');
+    document.getElementById('form-tab').classList.toggle('active', tab === 'form');
+    document.getElementById('deck-view').classList.toggle('active', tab === 'deck');
+    document.getElementById('form-view').classList.toggle('active', tab === 'form');
   }
 </script>
 
