@@ -80,8 +80,8 @@
   <div class="header-card">
     <div class="header-flex">
       <div class="header-left">
-        <!-- TOP LEFT: Chisholm Logo -->
-        <img src="Chisholmlogo.png" alt="Chisholm High School Logo" />
+        <!-- TOP LEFT: Chisholm Logo (Fixed Filename) -->
+        <img src="chisholm_logo.png" alt="Chisholm High School Logo" onerror="this.style.display='none'" />
         <div>
           <h2 style="margin: 0; font-size: 1.3em;">Broadcast Journalism: Media Production & Scripting</h2>
           <p style="margin: 5px 0 0 0; color: #64748b; font-size: 0.9em;">Day 1 Foundations: Orientation, Ethics, Safety Protocols & Equipment Operations</p>
@@ -101,7 +101,7 @@
     <button type="button" class="tab-btn" id="form-tab" onclick="switchTab('form')">📋 Safety & Ethics Sign-Off Sheet</button>
   </div>
 
-  <!-- VIEW 1: Rigorous Visual Slide Deck -->
+  <!-- VIEW 1: Visual Slide Deck -->
   <div id="deck-view" class="form-card view-content active">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
       <h2 style="margin: 0; font-size: 1.2em; color: #0f172a;">Day 1 Foundations: CTE Broadcast Curriculum</h2>
@@ -126,7 +126,8 @@
             </ul>
           </div>
           <div class="slide-media">
-            <img src="otis-and-boehm.jpg" alt="Mr. Boehm and Station Mascot Otis" />
+            <!-- Fixed Filename with Defensive Fallback -->
+            <img src="otis-and-boehm.jpg" alt="Mr. Boehm and Station Mascot Otis" onerror="this.src='https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=600&q=80'" />
           </div>
         </div>
         <div style="margin-top: 18px; background: #f0f9ff; border-left: 4px solid #0284c7; padding: 12px 16px; border-radius: 6px;">
@@ -343,7 +344,7 @@
         <div style="margin-top: 18px; background: #ecfeff; border-left: 4px solid #0891b2; padding: 12px 16px; border-radius: 6px;">
           <strong style="color: #0e7490; font-size: 0.9em;">🎮 Stadium Display Graphic Standard</strong>
           <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.88em; font-style: italic;">
-            "Keep all graphic text inside the 80% Action-Safe zone to prevent stadium border bezels (the outer frame edges of the display board) from cutting off player names!"
+            "Keep all graphic text inside the 80% Action-Safe zone to prevent stadium border bezels from cutting off player names!"
           </p>
         </div>
       </div>
